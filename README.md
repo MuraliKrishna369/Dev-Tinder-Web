@@ -12,7 +12,13 @@
 - Install @reduxjs/toolkit react-redux
 - configure store => provide the store to app => create slice => export reducer and actions
 - when user login successful navigate to feed page, and update the navabar image
-
+- if the user is login sucessful then only navigate to feed page
+- fix the problem => the user is wiped out when i refresh the page
+- why? => is beacuse our redux store refreshed
+- we are no more in login page to make again api call!
+- So use profile/view api and get the user and store it again in redux
+- whick component should make that make call
+- Body compoent is best . beacause body is the parent
 -App
     -Body
         -NavBar (fixed)
