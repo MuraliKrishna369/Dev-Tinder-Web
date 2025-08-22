@@ -24,9 +24,7 @@ const Body = () => {
           dispatch(addUser(res.data))
       }
       catch(err) {
-          if(err.status === 401){
-            navigate("/login")
-          }
+          navigate("/login") 
       }
     
 
@@ -36,7 +34,7 @@ const Body = () => {
     <div>
         <NavBar/>
         <Outlet/>
-        <Footer/>
+  
     </div>
   )
 }

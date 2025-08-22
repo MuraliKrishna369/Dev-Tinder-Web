@@ -22,6 +22,8 @@
 - Finnally devloped authorized rendering feature
 - Have to devlop logout feature
 - show error message when creduntails are wrong
+- get data from /feed api and create userCard
+- built profile page.
 -App
     -Body
         -NavBar (fixed)
