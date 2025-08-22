@@ -19,6 +19,9 @@
 - So use profile/view api and get the user and store it again in redux
 - whick component should make that make call
 - Body compoent is best . beacause body is the parent
+- Finnally devloped authorized rendering feature
+- Have to devlop logout feature
+- show error message when creduntails are wrong
 -App
     -Body
         -NavBar (fixed)

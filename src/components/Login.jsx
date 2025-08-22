@@ -9,6 +9,7 @@ import { BASE_URL } from "../utils/constants"
 const Login = () => {
   const [emailId, setEmail] = useState("murali@gmail.com")
   const [password, setPassword] = useState("Murali@123")
+  const [error, setError] = useState("")
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const handleSubmitForm = async (event) => {
@@ -22,7 +23,7 @@ const Login = () => {
         dispatch(addUser(response.data))
         navigate("/")
       } catch (error) {
-         console.error(error.message)
+        setError(error?.response?.data || "Somthing went wrong")
       }
       
   }
@@ -37,6 +38,7 @@ const Login = () => {
                 <label className="label">Password</label>
                 <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" className="input" placeholder="Password" />
                 <div><a className="link link-hover">Forgot password?</a></div>
+                <p className="text-red-500">{error}</p>
                 <button type="submit" className="btn btn-neutral mt-4">Login</button>
               </fieldset>
             </form>
