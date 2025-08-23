@@ -24,6 +24,13 @@
 - show error message when creduntails are wrong
 - get data from /feed api and create userCard
 - built profile page.
+
+- implement toast when save the profile
+    - get toast card from daisyUI, added to your edit profile component, when the user sent to the form.
+    - add timer to disappear
+- implement connections page, loggedIn user can see all his connections
+- implement request received page, loggedIn user can see all his received requests
+
 -App
     -Body
         -NavBar (fixed)
