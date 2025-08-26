@@ -31,7 +31,7 @@ const UserCard = ({user}) => {
                 </p>
                 <p>{about}</p>
                 <div className="flex justify-around my-5">
-                <button className="btn btn-primary" onClick={() => requestSendHandler("igonred",_id)}>Ignored</button>
+                <button className="btn btn-primary" onClick={() => requestSendHandler("ignored",_id)}>Ignored</button>
                 <button className="btn btn-secondary" onClick={() => requestSendHandler("intrested",_id)}>Intrested</button>
                 </div>
             </div>

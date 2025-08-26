@@ -20,6 +20,7 @@ const Feed = () => {
 
         } 
     }
+    if (feed.length === 0) return <h1 className="text-2xl font-medium text-center mt-2">No feed found</h1>
     return (
         <div className="flex justify-center">
             {feed && <UserCard user={feed[0]}/>}
