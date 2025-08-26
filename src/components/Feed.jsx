@@ -18,11 +18,10 @@ const Feed = () => {
         }
         catch(err){
 
-        }
-        
+        } 
     }
     return (
-        <div>
+        <div className="flex justify-center">
             {feed && <UserCard user={feed[0]}/>}
             
         </div>

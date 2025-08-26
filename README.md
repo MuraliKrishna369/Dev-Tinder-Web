@@ -31,6 +31,8 @@
 - implement connections page, loggedIn user can see all his connections
 - implement request received page, loggedIn user can see all his received requests
 
+- implement feed page
+
 -App
     -Body
         -NavBar (fixed)
