@@ -4,10 +4,12 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import {addFeed} from "../utils/feedSlice"
 import UserCard from "./UserCard"
+import { useNavigate } from "react-router"
 
 const Feed = () => {
     const feed = useSelector(store => store.feed)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     useEffect(() => {
         getFeed()
     }, [])
@@ -17,14 +19,13 @@ const Feed = () => {
             dispatch(addFeed(res.data))
         }
         catch(err){
-
+            console.log(err)
         } 
     }
-    if (feed.length === 0) return <h1 className="text-2xl font-medium text-center mt-2">No feed found</h1>
+    if (feed === null || feed.length === 0) return <h1 className="text-2xl font-medium text-center mt-2">No feed found</h1>
     return (
         <div className="flex justify-center">
-            {feed && <UserCard user={feed[0]}/>}
-            
+            <UserCard user={feed[0]}/>
         </div>
     )
 }

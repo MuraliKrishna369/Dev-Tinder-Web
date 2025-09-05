@@ -58,7 +58,7 @@ const Login = () => {
                 <label className="label">Email</label>
                 <input value={emailId} onChange={(e) => setEmail(e.target.value)} type="email" className="input" placeholder="Email" />
                 <label className="label">Password</label>
-                <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" className="input" placeholder="Password" />
+                <input id="password" value={password} onChange={(e) => setPassword(e.target.value)} type="password" className="input" placeholder="Password" />
                 
                 <div><a className="link link-hover">{isLoginForm && "Forgot password?" }</a></div>
                 <p className="text-red-500">{error}</p>

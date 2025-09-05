@@ -1,5 +1,4 @@
 import NavBar from "./NavBar"
-import Footer from "./Footer"
 import { Outlet, useNavigate } from "react-router"
 import { useEffect } from "react"
 import axios from "axios"
@@ -34,7 +33,6 @@ const Body = () => {
     <div>
         <NavBar/>
         <Outlet/>
-  
     </div>
   )
 }
