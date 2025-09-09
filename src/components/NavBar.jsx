@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useNavigate} from "react-router"
-import { BASE_URL } from "../utils/constants"
+import { BASE_URL, APP_LOGO } from "../utils/constants"
 import { removeUser } from "../utils/userSlice"
 
 
@@ -19,7 +19,7 @@ const NavBar = () => {
   return (
     <div className="navbar bg-base-300 shadow-sm">
   <div className="flex-1">
-    <Link to="/" className="btn btn-ghost text-xl">DevTinder</Link>
+    <Link to="/" className="btn btn-ghost text-xl"><img className="w-10" src={APP_LOGO}/><span>TechMate</span></Link>
   </div>
   {user && 
     <div className="flex items-center gap-2">

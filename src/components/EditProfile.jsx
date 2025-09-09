@@ -51,7 +51,7 @@ const EditProfile = ({user}) => {
                 <label className="label">Last name</label>
                 <input value={lastName} onChange={(e) => setLastName(e.target.value)} type="text" className="input" />
                 <label className="label">photoUrl</label>
-                <input value={photoUrl} onChange={(e) => setPhotoUrl(e.target.value)} type="text" className="input" />
+                <input onChange={(e) => setPhotoUrl(e.target.value)}  type="file" className="input h-6" />
                 <label className="label">About</label>
                 <textarea value={about} onChange={(e) => setAbout(e.target.value)} className="textarea" placeholder="Bio"></textarea>
                 <label className="label">age</label>

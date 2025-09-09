@@ -1,1 +1,2 @@
 export const BASE_URL = location.hostname === "localhost" ? "http://localhost:7777" : "/api";
+export const APP_LOGO = "https://res.cloudinary.com/dtbojznp3/image/upload/v1757408058/techmate-logo_tfp7zy.png"

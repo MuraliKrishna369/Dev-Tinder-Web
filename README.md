@@ -38,3 +38,15 @@
         -NavBar (fixed)
         -Content (changing according to users actions)
         -Footer (fixed)
+
+
+bugs
+    - change titile of app and logo
+    - if there is no feed found take him/her into blog page 
+    - create a feature they can post and read other people post, like, commment, save
+    - impement search bar in blog so they can search releated blogs
+    - implement AI's assistance
+    - set a limit for send maximun connections to other users.(crosses 30)
+    - using that build premium feature also
+    - build UI as beatiful as you can
+    - fix is there if any bugs in the backend also
