@@ -1,7 +1,22 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import { useParams } from "react-router"
+import { createSocketConnection } from "../utils/socket"
 
 const Chat = () => {
   const [messages, setMessages] = useState([{text: "Hello World!"}])
+  const targetUserId = useParams()
+  const user = useSelector(store => store.user)
+  const userId = user._id
+
+  useEffect(() => {
+    const socket = createSocketConnection()
+    socket.emit("joinChat", {userId, targetUserId})
+
+    return () => [
+        socket.disconnect()
+    ]
+  }, [])
   return (
     <div className="flex justify-center p-2">
         <div className="border border-gray-600 rounded-lg">

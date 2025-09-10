@@ -20,7 +20,6 @@ const Connections = () => {
   useEffect(() => {
     fetchConnections()
   }, [])
-  console.log(connections)
   return (
     <div>
         <h1 className='text-center my-3 font-medium text-2xl'>Connections</h1>
