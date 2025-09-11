@@ -3,11 +3,13 @@ import  { useEffect } from 'react'
 import { BASE_URL } from '../utils/constants'
 import { useDispatch, useSelector } from 'react-redux'
 import { addConnections } from '../utils/connectionSlice'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
+import { updateTargetUser } from '../utils/chatSlice'
 
 const Connections = () => {
   const connections = useSelector(store => store.connection)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const fetchConnections = async () => {
     try{
         const res = await axios.get(BASE_URL+"/user/connections", {withCredentials: true})
@@ -20,6 +22,11 @@ const Connections = () => {
   useEffect(() => {
     fetchConnections()
   }, [])
+  const handleMessageFun = (user) =>{
+     dispatch(updateTargetUser(user))
+     navigate("/chat/"+ user._id)
+     
+  }
   return (
     <div>
         <h1 className='text-center my-3 font-medium text-2xl'>Connections</h1>
@@ -31,7 +38,7 @@ const Connections = () => {
                     <div key={_id} className='flex items-center text-sm bg-base-200 m-2 p-2 rounded-lg self-center sm:w-[640px]'>
                         <div className='flex flex-col items-center mr-3'>
                             <img className='w-20 rounded-full ' alt="user-image" src={photoUrl}/>
-                            <Link to={"/chat/" + _id}><button className="btn btn-xs  btn-primary">Message</button></Link>
+                            <button className="btn btn-xs  btn-primary" onClick={() => handleMessageFun(user)}>Message</button>
                         </div>
                         <div>
                             <h2 className='text-lg'>{firstName + " " + lastName}</h2>
