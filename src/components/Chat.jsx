@@ -5,6 +5,8 @@ import { createSocketConnection } from "../utils/socket"
 import { FaVideo } from "@react-icons/all-files/fa/FaVideo";
 import { MdCall } from "@react-icons/all-files/md/MdCall";
 import { BsThreeDotsVertical } from "@react-icons/all-files/bs/BsThreeDotsVertical";
+import axios from "axios";
+import { BASE_URL } from "../utils/constants";
 
 const Chat = () => {
   const [messages, setMessages] = useState([])
@@ -13,9 +15,23 @@ const Chat = () => {
   const targetUser = useSelector(store => store.chat)
   const user = useSelector(store => store.user)
   const userId = user?._id
+  const fetchChat = async () => {
+        try{
+            const chat = await axios.get(BASE_URL+"/chat/"+targetUserId, {withCredentials: true})
+            setMessages(chat?.data?.messages)
+        }
+        catch(err){
+            console.log(err)
+        }
+        
+       
+        
+  }
+  useEffect(() => {
+    fetchChat()
+  }, [])
 
   useEffect(() => {
-      console.log(targetUser)
     if (userId === undefined) {
         return ;
     }
@@ -52,14 +68,13 @@ const Chat = () => {
                 </div>
             </div>
             <div className="h-[70vh] text-sm">
-                {messages.map((message, index) => {
-                    const condtionalStyling = message.firstName === user.firstName ? "chat chat-start flex flex-col items-end" : "chat chat-start"
+                {messages.map((message) => {
                     return (
-                        <div key={index} className={condtionalStyling}>
+                        <div key={message._id} className={message.senderId === user._id ? "chat chat-end" : "chat chat-start"}>
                             <div className="chat-header">
-                               {message.firstName === user.firstName ? "You": message.firstName}
+                               {message.senderId === user._id ? "You": targetUser.firstName}
                             </div>
-                        <div className="chat-bubble">{message.text}</div>
+                        <div className="chat-bubble">{message.message}</div>
                         <div className="chat-footer opacity-50">Seen</div>
                         </div>
                     )

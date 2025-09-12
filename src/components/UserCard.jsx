@@ -5,7 +5,6 @@ import { removeUserFromFeed} from "../utils/feedSlice"
 
 const UserCard = ({user}) => {
     const {firstName, lastName, photoUrl, age, gender, about, _id} = user
-    console.log(photoUrl)
     const dispatch = useDispatch()
     const requestSendHandler = async (status, toUserId) => {
         try {
