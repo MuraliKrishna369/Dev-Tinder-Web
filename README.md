@@ -50,3 +50,27 @@ bugs
     - using that build premium feature also
     - build UI as beatiful as you can
     - fix is there if any bugs in the backend also
+
+problem need to solve
+
+expectation - user can see target user of last seen and online status
+feature     - online status & last seen
+limits      - 0. online status
+            - 1. logged in user post their online status 
+            - 2. logged in user can see the online status only in chat / same room
+enquiry     - 1. how logged in user can post their online status
+                - sockets
+                - but how ?
+                    - when the logged in user land in chat component we will fire 
+                      socket.emit("sendStatus", {status: "online"}) send status online
+                    - and that event is fired in the backend
+                    - and we will check using console logs
+                - but is it enough?
+                    - No! we will send the back the status to frontend server using sockets again
+                    - but how ?
+                        - we will add an socket event listener in the frontend
+
+
+
+
+    
